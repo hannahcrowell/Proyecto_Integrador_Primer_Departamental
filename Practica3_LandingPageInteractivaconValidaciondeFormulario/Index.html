@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aroma Dreams - Café Premium</title>
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+
+<body>
+    <!-- Header semántico con navegación -->
+    <header class="main-header">
+        <nav class="navbar">
+            <div class="logo">
+                <h1>Aroma Dreams</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#productos">Productos</a></li>
+                <li><a href="#nosotros">Nosotros</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección hero con llamada a la acción -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h2 class="hero-title fade-in">Despierta tus sentidos con cada sorbo</h2>
+                <p class="hero-subtitle fade-in-delay">Café premium seleccionado directamente desde las montañas más
+                    exquisitas del mundo</p>
+                <button class="cta-button pulse">Descubre nuestro café</button>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                    alt="Café premium" class="hero-img">
+            </div>
+
+        </section>
+
+        <!-- Sección de productos usando article para cada producto -->
+        <section id="productos" class="productos">
+            <h2 class="section-title">Nuestros Cafés Premium</h2>
+            <div class="productos-grid">
+                <article class="producto-card hover-lift">
+                    <div class="producto-image espresso"></div>
+                    <h3>Espresso Intenso</h3>
+                    <p>Mezcla robusta con notas de chocolate negro y caramelo</p>
+                    <span class="precio">$24.99</span>
+                </article>
+
+                <article class="producto-card hover-lift">
+                    <div class="producto-image arabica"></div>
+                    <h3>Arabica Suave</h3>
+                    <p>Granos selectos con sabor floral y acidez balanceada</p>
+                    <span class="precio">$28.99</span>
+                </article>
+
+                <article class="producto-card hover-lift">
+                    <div class="producto-image colombiano"></div>
+                    <h3>Colombiano Supremo</h3>
+                    <p>Café de altura con cuerpo medio y aroma excepcional</p>
+                    <span class="precio">$32.99</span>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sección sobre nosotros -->
+        <section id="nosotros" class="nosotros">
+            <div class="nosotros-content">
+                <article class="nosotros-text">
+                    <h2>Nuestra Pasión por el Café</h2>
+                    <p>Desde 1995, hemos recorrido el mundo buscando los granos de café más excepcionales. Trabajamos
+                        directamente con agricultores locales para garantizar calidad premium y comercio justo.</p>
+                    <p>Cada taza cuenta una historia de dedicación, tradición y amor por el café perfecto.</p>
+                </article>
+                <div class="nosotros-stats">
+                    <div class="stat">
+                        <span class="stat-number">25+</span>
+                        <span class="stat-label">Años de experiencia</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Países visitados</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">10k+</span>
+                        <span class="stat-label">Clientes satisfechos</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección de contacto con formulario -->
+        <section id="contacto" class="contacto">
+            <h2 class="section-title">Contáctanos</h2>
+            <form id="contactForm" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre completo</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                    <span class="error-message" id="nombreError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Correo electrónico</label>
+                    <input type="email" id="email" name="email" required>
+                    <span class="error-message" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+                    <span class="error-message" id="mensajeError"></span>
+                </div>
+
+                <button type="submit" class="submit-button">Enviar mensaje</button>
+            </form>
+
+            <!-- Botón de suscripción con animación de confeti -->
+            <div class="newsletter">
+                <h3>¡Suscríbete a nuestro boletín!</h3>
+                <p>Recibe ofertas exclusivas y noticias sobre nuevos cafés</p>
+                <button id="subscribeBtn" class="subscribe-button">Suscríbete</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer semántico -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Aroma Dreams</h4>
+                <p>Tu destino para el café premium más exquisito del mundo</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <p>Email: info@aromadreams.com</p>
+                <p>Teléfono: +1 (555) 123-4567</p>
+            </div>
+            <div class="footer-section">
+                <h4>Síguenos</h4>
+                <div class="social-links">
+                    <a href="#">Facebook</a>
+                    <a href="#">Instagram</a>
+                    <a href="#">Twitter</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Aroma Dreams. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Modal para confirmación -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>¡Mensaje enviado exitosamente!</h3>
+            <p>Gracias por contactarnos. Te responderemos pronto.</p>
+        </div>
+    </div>
+
+    <!-- Contenedor para confeti -->
+    <div id="confetti-container"></div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

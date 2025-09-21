@@ -1,0 +1,88 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url(../Multimedia/Imagenes/sailor.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    display: grid;
+    /* Usamos grid para centrar */
+    place-items: center;
+    /* Centra el contenido horizontal y verticalmente */
+    min-height: 100vh;
+    /* Asegura que el cuerpo ocupe al menos toda la altura del viewport */
+    margin: 0;
+    /* Elimina el margen por defecto del body */
+}
+
+.game-container {
+    text-align: center;
+    max-width: 850px;
+}
+
+canvas {
+    border: 2px solid #33333300;
+    background: #eaf6ff;
+    margin: 20px 0;
+}
+
+.buttons button {
+    margin: 5px;
+    padding: 10px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+#startBtn {
+    background: #4caf50;
+    color: white;
+}
+
+#leaderboardBtn {
+    background: #2196f3;
+    color: white;
+}
+
+.instructions {
+    text-align: left;
+    margin-top: 15px;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+     display: flex;
+     flex-direction: column;
+     width: 400px;
+    padding: 30px;
+    margin: auto;
+    margin-top: 20px;
+    background: rgb(226, 190, 238);
+    border-radius: 10px;
+    text-align: center;
+     gap: 10px;
+}
+
+.saveScoreBtn {
+    background: #4caf50;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 100px;
+    margin: auto;
+    padding: 18px;
+    font-size: 19px;
+}

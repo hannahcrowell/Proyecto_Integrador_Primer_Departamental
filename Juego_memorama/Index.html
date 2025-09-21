@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juego de Memoria</title>
+    <!-- Enlace al archivo CSS externo -->
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <!-- Encabezado del juego con estadísticas -->
+    <div class="game-header">
+        <h1 class="game-title">🧠 Juego de Memorama 🧠</h1>
+        
+        <div class="game-stats">
+            <div class="stat-item">
+                <div class="stat-label">Intentos</div>
+                <div class="stat-value" id="attempts">0</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Tiempo</div>
+                <div class="stat-value" id="timer">00:00</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-label">Parejas</div>
+                <div class="stat-value" id="pairs">0/6</div>
+            </div>
+        </div>
+
+        <button class="reset-btn" onclick="resetGame()">🔄 Reiniciar Juego</button>
+    </div>
+
+    <!-- Tablero de juego -->
+    <div class="game-board" id="gameBoard">
+        <!-- Las cartas se generan dinámicamente con JavaScript -->
+    </div>
+
+    <!-- Mensaje de victoria/derrota -->
+    <div class="victory-message" id="victoryMessage">
+        <div class="victory-content">
+            <h2 class="victory-title">🎉 ¡Felicidades!</h2>
+            <div class="victory-stats" id="victoryStats">
+                ¡Has completado el juego!
+            </div>
+            <button class="play-again-btn" onclick="resetGame()">🎮 Jugar de Nuevo</button>
+        </div>
+    </div>
+
+    <!-- 📜 Historial de partidas -->
+   <!-- Historial de Partidas -->
+<div class="game-history ">
+  <h3>📜 Historial de partidas:</h3>
+  <ul id="scoreList"></ul>
+  <button onclick="clearScores()">🗑️ Borrar Historial</button>
+</div>
+
+
+    <!-- Enlace al archivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>

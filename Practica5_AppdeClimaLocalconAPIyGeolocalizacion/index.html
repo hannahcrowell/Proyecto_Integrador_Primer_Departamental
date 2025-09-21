@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App del Clima</title>
+    <!-- Font Awesome para iconos del clima -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Enlace al archivo CSS -->
+    <link rel="stylesheet" href="CSS/styles.css">
+</head>
+<body>
+    <!-- Contenedor principal de la aplicación -->
+    <div class="app-container">
+        <!-- Título principal -->
+        <header>
+            <h1><i class="fas fa-cloud-sun"></i> Mi App del Clima</h1>
+        </header>
+
+        <!-- Spinner de carga (oculto inicialmente) -->
+        <div id="loading-spinner" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Obteniendo datos del clima...</p>
+        </div>
+
+        <!-- Formulario de búsqueda por ciudad (oculto inicialmente) -->
+        <div id="city-search" class="search-container hidden">
+            <h2>Buscar clima por ciudad</h2>
+            <div class="search-input">
+                <input type="text" id="city-input" placeholder="Ingresa el nombre de la ciudad">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <p class="search-note">No pudimos acceder a tu ubicación. Busca por ciudad.</p>
+        </div>
+
+        <!-- Tarjeta principal del clima -->
+        <div id="weather-card" class="weather-card hidden">
+            <!-- Información de ubicación -->
+            <div class="location-info">
+                <h2 id="city-name">Ciudad</h2>
+                <p id="country">País</p>
+            </div>
+
+            <!-- Temperatura principal -->
+            <div class="main-temp">
+                <div class="temp-icon">
+                    <i id="weather-icon" class="fas fa-sun"></i>
+                </div>
+                <div class="temp-value">
+                    <span id="temperature">--</span>
+                    <span class="temp-unit">°C</span>
+                </div>
+            </div>
+
+            <!-- Descripción del clima -->
+            <div class="weather-description">
+                <p id="weather-desc">Descripción del clima</p>
+                <p id="feels-like">Sensación térmica: <span>--°C</span></p>
+            </div>
+
+            <!-- Detalles adicionales del clima -->
+            <div class="weather-details">
+                <div class="detail-item">
+                    <i class="fas fa-tint"></i>
+                    <div>
+                        <span class="detail-label">Humedad</span>
+                        <span id="humidity" class="detail-value">--%</span>
+                    </div>
+                </div>
+                
+                <div class="detail-item">
+                    <i class="fas fa-wind"></i>
+                    <div>
+                        <span class="detail-label">Viento</span>
+                        <span id="wind-speed" class="detail-value">-- km/h</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-eye"></i>
+                    <div>
+                        <span class="detail-label">Visibilidad</span>
+                        <span id="visibility" class="detail-value">-- km</span>
+                    </div>
+                </div>
+
+                <div class="detail-item">
+                    <i class="fas fa-thermometer-half"></i>
+                    <div>
+                        <span class="detail-label">Presión</span>
+                        <span id="pressure" class="detail-value">-- hPa</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Botón para actualizar -->
+            <button id="refresh-btn" class="refresh-btn">
+                <i class="fas fa-sync-alt"></i> Actualizar
+            </button>
+        </div>
+
+        <!-- Mensaje de error -->
+        <div id="error-message" class="error-message hidden">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="error-text">Error al obtener los datos del clima</p>
+            <button id="retry-btn" class="retry-btn">Reintentar</button>
+        </div>
+    </div>
+
+    <!-- Partículas de lluvia (para animación) -->
+    <div id="rain-particles" class="rain-particles hidden"></div>
+    
+    <!-- Partículas de nieve (para animación) -->
+    <div id="snow-particles" class="snow-particles hidden"></div>
+
+    <!-- Enlace al archivo JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

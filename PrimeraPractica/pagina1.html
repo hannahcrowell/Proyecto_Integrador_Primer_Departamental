@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <title>Mi Primera Página web</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0">
+    <title>Mi Primera Página web</title>
+    <link rel="icon" href="CSS/Imagenes/bruja.ico">
+    <link rel="stylesheet" href="CSS/estilo.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+        <a href=""><img src="CSS/Imagenes/bruja.png" alt=""></a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#Acercade">Acerca de</a></li>
+                <li><a href="#Contacto">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section id="inicio">
+        <h1>Bienveniedo a mi página web</h1>
+        <p>Esta es mi primera página</p>
+        <img src="CSS/Gifs/pu.gif" alt=" puppy">
+    </section>
+    <hr>
+    <section id="Acercade">
+        <h2>Acerca de</h2>
+        <p1>Esta es una página en html creada como primera practica, además de que estoy haciendo investigación para ver
+            que tanto la puedo mejorar,
+            estaré viendo videos de youtube para personalizarla lo más que pueda, por mientras pondre un video de mi
+            serie favorita del momento
+            con una canción que lo representa perfecto, además es de mi cantante favorita Taylor Swift</p1>
+        <div>
+            <video src="CSS/Videos/video.mp4" type="video/mp4" controls>
+        </div>
+    </section>
+    <hr>
+    <section id="Contacto">
+        <h1>Contacto</h1>
+        <p>Puedes contactarme a través del siguiente formulario</p>
+        <form action="https://formsubmit.co/mfhm1316@gmail.com" method="post">
+            <label for="nombre">Nombre:</label>
+            <input type="name" id="nombre" name="nombre" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="mensaje">Mensaje:</label>
+            <input type="text" id="mensaje" name="mensaje" required>
+
+            <button type="submit">Enviar</button>
+            <input type="hidden" name "_next" value="http://127.0.0.1:5500/pagina1.html#inicio">
+            <input type="hidden" name="_captcha" value="false">
+        </form>
+    </section>
+    <hr>
+    <footer>
+        <p>Copyright © Todos los derechos reservados</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RunnerJS</title>
+  <link rel="stylesheet" href="./Juego_Dino/CSS/style.css">
+</head>
+
+<body>
+  <div class="game-container">
+    <h1>🦖 RunnerJS</h1>
+    <div class="stats">
+      <p>Puntuación: <span id="score">0</span></p>
+      <p>Nivel: <span id="level">1</span></p>
+      <p>Mejor Puntuación: <span id="bestScore">0</span></p>
+    </div>
+
+    <canvas id="gameCanvas" width="950" height="500"></canvas>
+
+    <div class="buttons">
+      <button id="startBtn">▶️ Iniciar Juego</button>
+      <button id="leaderboardBtn">🏆 Ver Rankings</button>
+    </div>
+
+    <div class="instructions">
+      <h3>📖 Instrucciones:</h3>
+      <ul>
+        <li>Presiona <b>ESPACIO</b> o <b>↑</b> para saltar</li>
+        <li>Esquiva los cactus para obtener puntos</li>
+        <li>El juego se acelera cada nivel</li>
+        <li>¡Consigue la puntuación más alta!</li>
+      </ul>
+    </div>
+  </div>
+
+  <div id="gameOverModal" class="modal">
+    <div class="modal-content">
+      <h2>☠️ Game Over</h2>
+      <p>Puntuación final: <span id="finalScore">0</span></p>
+      <input type="text" id="playerName" placeholder="Ingresa tu nombre">
+      <button id="saveScoreBtn">Guardar</button>
+      <button id="restartBtn">Reiniciar</button>
+    </div>
+  </div>
+
+  <div id="leaderboardModal" class="modal">
+    <div class="modal-content">
+      <h2>🏆 Ranking</h2>
+      <ul id="leaderboardList"></ul>
+      <button id="closeLeaderboardBtn">Cerrar</button>
+    </div>
+  </div>
+
+  <script src="/Juego_Dino/api.js"></script>
+  <script src="/Juego_Dino/script.js"></script>
+</body>
+
+</html>

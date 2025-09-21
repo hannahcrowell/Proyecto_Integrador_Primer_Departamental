@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: titulo;
+    src: url(../Multimedia/Fuentes/KGPerfectPenmanship.ttf);
+}
+
+@font-face {
+    font-family: texto;
+    src: url(../Multimedia/Fuentes/LettersforLearners.ttf);
+}
+
+body {
+    font-family: titulo;
+    line-height: 1.6;
+    background-image: url(../Multimedia/Imagenes/aura.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    color: #333;
+    font-size: 30px;
+    padding: 20px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box {
+    width: 400px;
+    padding: 30px;
+    color: aliceblue;
+    border-radius: 15px;
+    background-color: #838282;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-field {
+    font-family: texto;
+    font-size: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.input-field span {
+    margin-bottom: 5px;
+}
+
+input,
+.submit {
+    padding: 8px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.submit {
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 18px;
+    font-weight: bold;
+    font-family: texto;
+    background-color: rgb(220, 159, 248);
+}
+
+.bottom {
+    font-family: texto;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 20px;
+    font-size: 16px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.top-header {
+    font-family: titulo;
+    font-size: 50px;
+    color: aliceblue;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.top-header span{
+    background-color: black;
+    font-size:40px;
+}

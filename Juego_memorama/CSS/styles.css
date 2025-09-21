@@ -1,0 +1,405 @@
+/* ===== ESTILOS CSS PARA EL JUEGO DE MEMORIA ===== */
+
+/* Reset básico y configuración general */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url(../Multimedia/Imagenes/aura.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    color: white;
+}
+
+/* ===== ESTILOS DEL ENCABEZADO ===== */
+.game-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.game-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.996);
+}
+
+.game-stats {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    background: rgba(79, 74, 74, 0.756);
+    padding: 15px 25px;
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    text-align: center;
+    min-width: 120px;
+}
+
+.stat-label {
+    font-size: 0.9em;
+    opacity: 0.8;
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.reset-btn {
+    background: #dbbaf1;
+    color: rgb(0, 0, 0);
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    margin-bottom: 30px;
+}
+
+.reset-btn:hover {
+    background: #edaff9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== ESTILOS DEL TABLERO DE JUEGO ===== */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    max-width: 600px;
+    width: 100%;
+    perspective: 1000px; /* Perspectiva para el efecto 3D */
+}
+
+/* ===== ESTILOS DE LAS CARTAS ===== */
+.card {
+    aspect-ratio: 1;
+    position: relative;
+    cursor: pointer;
+    transform-style: preserve-3d; /* Preserva el espacio 3D para el efecto flip */
+    transition: transform 0.6s ease;
+    min-height: 100px;
+}
+
+/* Estados de las cartas */
+.card.flipped {
+    transform: rotateY(180deg); /* Voltear carta */
+}
+
+.card.matched {
+    transform: rotateY(180deg); /* Mantener volteada */
+    /* AJUSTE: Las cartas emparejadas se mantienen completamente visibles */
+    opacity: 1;
+    /* Añadir efecto visual especial para parejas encontradas */
+    animation: matchedGlow 1s ease-in-out;
+}
+
+/* Animación especial para cartas emparejadas */
+@keyframes matchedGlow {
+    0% { 
+        box-shadow: 0 0 0 rgba(76, 175, 80, 0.7);
+        transform: rotateY(180deg) scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 20px rgba(76, 175, 80, 0.8);
+        transform: rotateY(180deg) scale(1.05);
+    }
+    100% { 
+        box-shadow: 0 0 10px rgba(76, 175, 80, 0.6);
+        transform: rotateY(180deg) scale(1);
+    }
+}
+
+/* Caras de las cartas */
+.card-face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden; /* Oculta la cara trasera cuando está volteada */
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5em;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    border: 2px solid rgba(255,255,255,0.2);
+}
+
+/* Cara frontal (con el emoji/símbolo) */
+.card-front {
+    background: linear-gradient(135deg, #d2afff 0%, #dad2fb 100%);
+    transform: rotateY(180deg); /* Inicialmente oculta */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Cara trasera (con el signo de interrogación) */
+.card-back {
+    background: linear-gradient(135deg, #f1c6ff 0%, #b576dc 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-back::before {
+    content: '?';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2em;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.997);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+/* ===== ESTILOS DEL MENSAJE DE VICTORIA ===== */
+.victory-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.victory-content {
+    background: linear-gradient(135deg, #bba1e8 0%, #bba1e8 100%);
+    padding: 40px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+    border: 2px solid rgba(255,255,255,0.2);
+    max-width: 90%;
+    animation: victoryPulse 0.5s ease-out;
+}
+
+@keyframes victoryPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.victory-title {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #000000;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.victory-stats {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    opacity: 0.9;
+}
+
+.play-again-btn {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.play-again-btn:hover {
+    background: #45a049;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+
+.play-again-btn:active {
+    transform: translateY(0);
+}
+
+/* ===== RESPONSIVE DESIGN PARA MÓVILES ===== */
+@media (max-width: 768px) {
+    .game-title {
+        font-size: 2em;
+    }
+
+    .game-stats {
+        gap: 15px;
+    }
+
+    .stat-item {
+        padding: 10px 15px;
+        min-width: 100px;
+    }
+
+    .stat-value {
+        font-size: 1.3em;
+    }
+
+    .game-board {
+        gap: 10px;
+        max-width: 350px;
+    }
+
+    .card-face {
+        font-size: 2em;
+    }
+
+    .victory-content {
+        padding: 30px;
+        margin: 20px;
+    }
+
+    .victory-title {
+        font-size: 2em;
+    }
+
+    .victory-stats {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 480px) {
+    .game-board {
+        max-width: 300px;
+        gap: 8px;
+    }
+
+    .card-face {
+        font-size: 1.5em;
+    }
+
+    .card-back::before {
+        font-size: 1.5em;
+    }
+
+    .game-stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .stat-item {
+        width: 100%;
+        max-width: 200px;
+    }
+}
+
+/* ===== EFECTOS ADICIONALES ===== */
+.card:hover:not(.matched):not(.flipped) {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* Efecto de pulso para las cartas recién emparejadas */
+.card.matched .card-front {
+    border: 3px solid #4CAF50;
+    box-shadow: 0 0 15px rgba(76, 175, 80, 0.6);
+}
+/* ===== ESTILOS DEL HISTORIAL ===== */
+.game-history {
+    margin-top: 40px;
+    background: rgba(79, 74, 74, 0.7);
+    padding: 20px 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
+    width: 100%;
+    max-width: 600px;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+    align-items: center;
+}
+
+.game-history h3 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 1.8em;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
+    color: #dbbaf1;
+}
+
+#scoreList {
+    list-style: none;
+    max-height: 250px; /* límite con scroll */
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+#scoreList li {
+    background: rgba(255, 255, 255, 0.15);
+    margin-bottom: 10px;
+    padding: 12px 15px;
+    border-radius: 12px;
+    font-size: 0.95em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#scoreList li:hover {
+    transform: translateX(5px);
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Etiquetas dentro del historial */
+.history-time {
+    font-weight: bold;
+    color: #b4ffb4;
+}
+
+.history-attempts {
+    font-weight: bold;
+    color: #ffd27f;
+}
+
+.history-result {
+    font-weight: bold;
+    color: #ff9e9e;
+}
+/* Botón de borrar historial */
+.game-history button {
+    background-color: rgba(255, 100, 100, 0.8); /* Rojo suave translúcido */
+    border: 2px solid #ff4c4c; /* Borde rojo */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 8px 16px; /* Espaciado interno */
+    font-size: 14px;
+    font-weight: bold;
+    color: #fff; /* Texto blanco */
+    cursor: pointer;
+}

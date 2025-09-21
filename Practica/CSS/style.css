@@ -1,0 +1,208 @@
+/* Reset de estilos básicos */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url(../Multimedia/aura.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+
+.tarjeta-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.tarjeta-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 35px 65px rgba(0, 0, 0, 0.15);
+}
+
+.foto-perfil {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    margin: 0 auto 25px;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    color: white;
+    font-weight: bold;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 4px solid rgba(255, 255, 255, 0.8);
+}
+
+.foto-perfil:hover {
+    transform: scale(1.05) rotate(5deg);
+    box-shadow: 0 15px 30px rgba(102, 126, 234, 0.3);
+}
+
+
+.nombre {
+    font-size: 28px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 10px;
+    background: linear-gradient(45deg, #764ba2, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carrera {
+    font-size: 16px;
+    color: #764ba2;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+
+.descripcion {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    font-size: 15px;
+    text-align: justify;
+}
+
+.btn-contacto {
+    background: linear-gradient(45deg, #eaafff, rgb(142, 90, 194));
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-contacto:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(45deg, #764ba2, #667eea);
+}
+
+.btn-contacto:active {
+    transform: translateY(0);
+}
+
+.contacto-info {
+    margin-top: 25px;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 15px;
+    border-left: 4px solid rgb(209, 168, 245);
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.contacto-info.mostrar {
+    opacity: 1;
+    max-height: 200px;
+    margin-top: 25px;
+}
+
+
+.contacto-item {
+    margin: 10px 0;
+    color: #4a5568;
+    font-weight: 500;
+}
+
+.contacto-item strong {
+    color: #b191e4;
+    font-weight: 600;
+}
+
+
+.decoracion {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    z-index: -1;
+}
+
+.decoracion::before {
+    content: '';
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(45deg, rgba(118, 75, 162, 0.15), rgba(102, 126, 234, 0.15));
+    border-radius: 50%;
+    bottom: -30px;
+    left: -30px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width: 480px) {
+    .tarjeta-container {
+        padding: 30px 25px;
+        margin: 10px;
+    }
+
+    .nombre {
+        font-size: 24px;
+    }
+
+    .foto-perfil {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
+    }
+}
+
+.imagen-perfil {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
